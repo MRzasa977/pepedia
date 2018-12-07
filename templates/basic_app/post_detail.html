@@ -1,0 +1,10 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+    <div class="jumbotron">
+        <h2>
+            <a href="{{ detail_post.pk }}" title="Tytuł" role="link" class="Title">{{ detail_post.title }}</a>
+        </h2>
+        <span>Author: {{ detail_post.author }}</span>
+        <img src="{% if detail_post.image %}{{ detail_post.image.url }}{% else %}{{ '#' }}{% endif %}" />
+    </div>
+{% endblock %}

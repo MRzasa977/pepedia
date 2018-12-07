@@ -1,0 +1,15 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+<div class="jumbotron">
+    <h1>Pepedia!</h1>
+    {% for post in post_list %}
+        <h2>
+            <a href="{% url 'basic_app:detail_post' post.pk %}" title="Tytuł" role="link" class="Title">{{ post.title }}</a>
+        </h2>
+        <span>
+            <a href="{% url 'basic_app:author_view' post.author_id %}" title="Autor" role="link" class="Author">{{ post.author }}</a>
+        </span>
+        <img src="{% if post.image %}{{ post.image.url }}{% else %}{{ '#' }}{% endif %}" width="20"/>
+    {% endfor %}
+</div>
+{% endblock body_block %}
